@@ -23,16 +23,14 @@ if st.button("Generate Image 🚀"):
         "AI image tayar kar raha hai, thora intezar karein..."
     ):
       try:
-        # URL encode prompt for safe usage
         import urllib.parse
 
         encoded_prompt = urllib.parse.quote(prompt)
-
-        # Pollinations free image URL
         image_url = f"https://image.pollinations.ai/prompt/{encoded_prompt}"
 
         st.success("Image kamyabi se ban gayi!")
-        st.image(image_url, caption=prompt, use_column_width=True)
+        # Yahan use_column_width ki jagah use_container_width kar diya hai
+        st.image(image_url, caption=prompt, use_container_width=True)
 
       except Exception as e:
         st.error(f"Koi error aa gaya: {e}")
